@@ -1,0 +1,50 @@
+# Example Terraform Variables Configuration
+# Copy this file to terraform.tfvars and modify as needed
+
+# VPC Configuration
+vpc_name        = "my-vpc"
+vpc_description = "VPC for Kubernetes cluster"
+vpc_ip_range    = "10.10.0.0/16"
+
+# Cluster Configuration
+cluster_name    = "my-doks-cluster"
+environment     = "production"
+region          = "nyc1"
+cluster_version = "1.31.1-do.5"
+
+# High Availability & Upgrades
+enable_ha     = true
+auto_upgrade  = false
+surge_upgrade = false
+
+# Maintenance Window
+maintenance_day        = "sunday"
+maintenance_start_time = "04:00"
+
+# Node Pool Configuration
+node_size        = "s-2vcpu-4gb"
+node_count       = 3
+enable_autoscale = true
+min_nodes        = 2
+max_nodes        = 5
+
+# Additional Node Pools (Optional)
+# additional_node_pools = {
+#   "compute-intensive" = {
+#     size       = "c-4"
+#     node_count = 2
+#     auto_scale = true
+#     min_nodes  = 1
+#     max_nodes  = 4
+#     tags       = ["compute"]
+#   }
+# }
+
+# Container Registry Integration
+enable_registry = false
+
+# Kubeconfig
+kubeconfig_path = "./kubeconfig"
+
+# Tags
+tags = ["terraform-managed", "production", "kubernetes"]
