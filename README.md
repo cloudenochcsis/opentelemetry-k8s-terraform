@@ -27,7 +27,8 @@ This Terraform configuration provisions a managed Kubernetes cluster on DigitalO
 ### 1. Clone or Navigate to This Directory
 
 ```bash
-cd /Users/akpadetsi/Cloud\ Projects/DOKS
+git clone git@github.com:cloudenochcsis/opentelemetry-k8s-terraform.git
+cd opentelemetry-k8s-terraform
 ```
 
 ### 2. Set Your DigitalOcean Token
@@ -196,39 +197,6 @@ additional_node_pools = {
 - **Block Storage**: ~$0.10/GB/month
 
 Estimate your costs at [DigitalOcean Pricing Calculator](https://www.digitalocean.com/pricing/calculator)
-
-## Architecture
-
-```
-┌─────────────────────────────────────────┐
-│  DigitalOcean Region (e.g., nyc1)      │
-│                                         │
-│  ┌───────────────────────────────────┐ │
-│  │  VPC (10.10.0.0/16)               │ │
-│  │                                   │ │
-│  │  ┌─────────────────────────────┐ │ │
-│  │  │  Kubernetes Cluster         │ │ │
-│  │  │                             │ │ │
-│  │  │  ┌────────────────────┐    │ │ │
-│  │  │  │  Control Plane     │    │ │ │
-│  │  │  │  (HA optional)     │    │ │ │
-│  │  │  └────────────────────┘    │ │ │
-│  │  │                             │ │ │
-│  │  │  ┌────────────────────┐    │ │ │
-│  │  │  │  Critical Pool     │    │ │ │
-│  │  │  │  - Node 1          │    │ │ │
-│  │  │  │  - Node 2          │    │ │ │
-│  │  │  │  - Node 3          │    │ │ │
-│  │  │  └────────────────────┘    │ │ │
-│  │  │                             │ │ │
-│  │  │  ┌────────────────────┐    │ │ │
-│  │  │  │  Additional Pools  │    │ │ │
-│  │  │  │  (optional)        │    │ │ │
-│  │  │  └────────────────────┘    │ │ │
-│  │  └─────────────────────────────┘ │ │
-│  └───────────────────────────────────┘ │
-└─────────────────────────────────────────┘
-```
 
 ## Security Best Practices
 
